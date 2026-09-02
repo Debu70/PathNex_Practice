@@ -7,6 +7,14 @@ data "aws_default_VPC" "own_default_VPC" {
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners = [ "137112412989" ]
+=======
+#For Default Security Group
+
+data "aws_default_SG" "default_SG" {
+  name = "default_SG"
+  vpc_id = "aws_default_VPC.own_default_VPC.id"
+}
+
 
   filter {
     name = "name"
